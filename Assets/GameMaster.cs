@@ -6,6 +6,9 @@ public class GameMaster : MonoBehaviour
 
     public static GameMaster gm;
 
+
+    [SerializeField]
+    private int maxLives = 3;
     private static int _remainingLives = 3;
     public static int RemainingLives
     {
@@ -20,6 +23,13 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+
+    void Start()
+    {
+        _remainingLives = maxLives;
+    }
+
+
     public Transform playerPrefab;
     public Transform spawnPoint;
     public float spawnDelay = 2;
@@ -29,10 +39,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField]
     private GameObject gameOverUI;
 
-    void Start()
-    {
-      
-    }
+  
 
     public void EndGame()
     {

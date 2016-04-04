@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
 {
 
     // What to chase?
-    public Transform target;
+    public  Transform target;
 
     // How many times each second we will update our path
     public float updateRate = 2f;
@@ -70,7 +70,7 @@ public class EnemyAI : MonoBehaviour
          target = sResult.transform;
          searchingForPlayer = false;
          StartCoroutine(UpdatePath());
-         return false;
+          yield break;
 
      }
 
@@ -84,7 +84,7 @@ public class EnemyAI : MonoBehaviour
                 searchingForPlayer = true;
                 StartCoroutine(SearchForPlayer());
             }
-            return false;
+           yield break;
         }
 
         // Start a new path to the target position, return the result to the OnPathComplete method
